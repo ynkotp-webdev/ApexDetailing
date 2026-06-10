@@ -1,5 +1,7 @@
 ---
 import CPAButton from './CPAButton.astro';
+import { Image } from 'astro:assets';
+import mainHeroPage from '../assets/images/heroMainPage.webp';
 
 ---
 <section>
@@ -11,10 +13,13 @@ import CPAButton from './CPAButton.astro';
             <h2>
                 Естетика вашого авто, захищена технологіями.
             </h2>
+            <p> 
+                Підзаголовок: Професійний дітейлінг, захист лакофарбового покриття плівками та нанокерамікою у Львові. Працюємо за стандартами європейських студій із сертифікованими матеріалами.
+            </p>
             <CPAButton />
         </div>
         <div>
-
+            <Image src={mainHeroPage} alt="Головне зображення сторінки" />
         </div>
     </div>
 </section>
