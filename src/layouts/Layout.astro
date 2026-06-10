@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-	title = '#@ Назва сайту',
-	description = ' ',
+	title = 'Apex Detailing - Професійний догляд за вашим автомобілем у Львові',
+	description = 'Apex Detailing - це команда професіоналів, яка надає високоякісні послуги з догляду за автомобілем у Львові. Ми пропонуємо широкий спектр послуг, включаючи мийку, полірування, захист лаку та багато іншого, щоб ваш автомобіль завжди виглядав як новий.',
 	image = ogDefault.src,
 } = Astro.props;
 
@@ -30,7 +30,7 @@ const imageURL = new URL(image, Astro.site);
 		<meta name="description" content={description} />
 		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="#@" />
+		<meta property="og:site_name" content="Apex Detailing" />
 		<meta property="og:locale" content="uk_UA" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
