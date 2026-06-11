@@ -1,0 +1,28 @@
+---
+import CPAButton from './CPAButton.astro';
+import { Picture } from 'astro:assets';
+import mainHeroPage from '../../assets/images/heroMainPage.webp';
+
+---
+<section class="hero">
+    <Picture
+        class="hero__bg"
+        src={mainHeroPage}
+        alt="Головне зображення сторінки"
+        widths={[240, 540, 720, mainHeroPage.width]}
+        sizes="100vw"
+        formats={['avif', 'webp']}
+    />
+    <div class="hero__content">
+        <h1>
+            Apex Detailing
+        </h1>
+        <p>
+            Естетика вашого авто, захищена технологіями.
+        </p>
+        <p>
+            Професійний дeтейлінг, захист лакофарбового покриття плівками та нанокерамікою у Львові. Працюємо за стандартами європейських студій із сертифікованими матеріалами.
+        </p>
+        <CPAButton />
+    </div>
+</section>

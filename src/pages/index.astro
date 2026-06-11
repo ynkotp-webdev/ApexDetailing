@@ -1,18 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Hero from '../components/Hero.astro';
-import WhyOurServices from '../components/WhyOurServices/WhyOurServices.astro';
-import AboutUs from '../components/AboutUs.astro';
+import Hero from '../components/indexComponents/Hero.astro';
+import WhyOurServices from '../components/indexComponents/WhyOurServices/WhyOurServices.astro';
+import AboutUs from '../components/indexComponents/AboutUs.astro';
 
 ---
 <Layout>
-	<Header />
-		<main>
-			<Hero />
-			<WhyOurServices />
-			<AboutUs />
-		</main>
-	<Footer />
+	<Hero />
+	<WhyOurServices />
+	<AboutUs />
 </Layout>

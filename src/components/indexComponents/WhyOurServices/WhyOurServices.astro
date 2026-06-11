@@ -1,27 +1,30 @@
 ---
-import { Image } from "astro:assets";
 import WhyOurServicesItem from "./WhyOurServicesItem.astro";
+import services1 from "../../../assets/images/MainPageImages/services/services1.webp";
+import services2 from "../../../assets/images/MainPageImages/services/services2.webp";
+import services3 from "../../../assets/images/MainPageImages/services/services3.webp";
+import services4 from "../../../assets/images/MainPageImages/services/services4.webp";
 
 const services = [
     {
         title: "Лабораторна чистота",
         description: "Наші бокси захищені від пилу та мають закритий контур вентиляції. Це критично для правильної адгезії кераміки та бездоганного нанесення антигравійної плівки без повітряних бульбашок.",
-        image: null
+        image: services1,
     },
     {
         title: "Контроль світла Scangrip",
         description: "Використовуємо професійне інспекційне світло з різною колірною температурою. Це дозволяє майстру побачити й усунути навіть найменші голограми, які непомітні під звичайними лампами.",
-        image: null
+        image: services2,
     },
     {
         title: "Вимірювання мікронів",
         description: "Перед початком полірування ми обов'язково вимірюємо товщину лакофарбового покриття ультразвуковим товщиноміром. Ми працюємо безпечно та зберігаємо максимальний шар рідного лаку.",
-        image: null
+        image: services3,
     },
     {
         title: "Преміальна хімія",
         description: "Жодних мас-маркет засобів. Лише сертифіковані європейські та американські бренди: Koch-Chemie, Gtechniq, CarPro та хімічно стійкі поліуретанові плівки преміум-сегменту.",
-        image: null
+        image: services4,
     }
 
 ]
@@ -32,7 +35,7 @@ const services = [
     <h2>
         Чому люди обирають саме «Apex Detailing»?
     </h2>
-    <div>
+    <div class="grid gap-8 md:grid-cols-2">
         {services.map(service => <WhyOurServicesItem {...service} />)}
     </div>
 </section>

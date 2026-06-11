@@ -14,4 +14,32 @@
 
 @layer components {
 
+    /* ===== Hero ===== */
+    .hero {
+        @apply relative flex items-center overflow-hidden;
+        min-height: 80vh;
+    }
+
+    /* Картинка-фон. Класс летит на <picture>, поэтому растягиваем
+       и сам элемент, и вложенный <img> (до него Tailwind в разметке не достаёт). */
+    .hero__bg,
+    .hero__bg img {
+        @apply absolute inset-0 h-full w-full;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    /* Затемнение между фоном и текстом для читабельности */
+    .hero::after {
+        @apply absolute inset-0;
+        content: "";
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .hero__content {
+        @apply relative max-w-3xl p-8 text-white;
+        z-index: 2;
+    }
+
 }

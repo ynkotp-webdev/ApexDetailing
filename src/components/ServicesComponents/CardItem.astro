@@ -1,0 +1,34 @@
+--- 
+const { title, id, price, duration, shortDesc, fullFeatures } = Astro.props;
+---
+<details>
+    <summary>
+        <div>
+            <div>
+                <span>
+                    {title}
+                </span>
+                <span>
+                    {duration}
+                </span>
+            </div>
+            <div>
+                <span>
+                    {shortDesc}
+                </span>
+            </div>
+        </div>
+        <div>
+            <span> {price}</span>
+        </div>
+    </summary>
+    <div>
+        <p> Що конкретно входить у вартість процесу:</p>
+        <ul>
+            {fullFeatures.map(feature => <li>
+                {feature}
+            </li>)}
+        </ul>
+    </div>
+
+</details>
