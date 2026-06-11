@@ -31,11 +31,20 @@ const services = [
 
 ---
 
-<section>
-    <h2>
-        Чому люди обирають саме «Apex Detailing»?
-    </h2>
-    <div class="grid gap-8 md:grid-cols-2">
-        {services.map(service => <WhyOurServicesItem {...service} />)}
+<section class="bg-clinic-100 py-20 sm:py-24">
+    <div class="container-x">
+        <div class="mx-auto max-w-2xl text-center">
+            <p class="section-eyebrow">Наші переваги</p>
+            <h2 class="section-title mt-3">
+                Чому люди обирають саме «Apex&nbsp;Detailing»?
+            </h2>
+            <p class="mt-4 text-base leading-relaxed text-carbon-700/80">
+                Технологічний підхід, сертифіковані матеріали та контроль якості на кожному етапі.
+            </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2">
+            {services.map(service => <WhyOurServicesItem {...service} />)}
+        </div>
     </div>
 </section>

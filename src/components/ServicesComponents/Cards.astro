@@ -79,6 +79,18 @@ const services = [
 ];
 ---
 
-<div>
-    {services.map(service => <CardItem {...service} />)}
-</div>
+<section id="prices" class="bg-clinic-100 py-20 sm:py-24">
+    <div class="container-x">
+        <div class="mx-auto max-w-2xl text-center">
+            <p class="section-eyebrow">Прайс-лист</p>
+            <h2 class="section-title mt-3">Наші комплекси та ціни</h2>
+            <p class="mt-4 text-base leading-relaxed text-carbon-700/80">
+                Натисніть на послугу, щоб дізнатися, що саме входить у вартість.
+            </p>
+        </div>
+
+        <div class="mx-auto mt-12 max-w-4xl space-y-4">
+            {services.map(service => <CardItem {...service} />)}
+        </div>
+    </div>
+</section>

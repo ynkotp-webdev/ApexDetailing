@@ -3,6 +3,7 @@
 import { Image } from 'astro:assets';
 import { links } from '../../data/nav.ts';
 import  logo  from '../../assets/images/logo.png';
+const base = import.meta.env.BASE_URL;
 ---
 <div
 	id="sidebar-overlay"
@@ -30,15 +31,17 @@ import  logo  from '../../assets/images/logo.png';
 	       lg:hidden"
 	aria-hidden="true"
 >
-	<div class="flex items-center justify-between border-b border-white/10 px-6 py-5">
-		<span class="font-display text-lg font-semibold"><Image src={logo} alt="Логотип Apex Detailing"></span>
+	<div class="flex items-center justify-between border-b border-carbon-900/10 px-6 py-4">
+		<span class="flex items-center gap-2 font-display text-lg font-semibold text-carbon-900">
+			<Image src={logo} alt="Логотип Apex Detailing" width={40} height={40} class="h-10 w-10 object-contain" />
+			Apex Detailing
+		</span>
 
-		 
 		<button
 			type="button"
 			id="sidebar-close"
-			aria-label="#@ Закрити меню"
-			class="inline-flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-black/10"
+			aria-label="Закрити меню"
+			class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-carbon-900 transition hover:bg-carbon-900/10"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -64,10 +67,16 @@ import  logo  from '../../assets/images/logo.png';
 		links.map(link => (
 			<a
 				href={link.href}
-				class="block rounded-lg px-3 py-2 text-sm transition hover:bg-black/10"
+				class="block rounded-lg px-3 py-2.5 text-base font-medium text-carbon-700 transition hover:bg-cobalt-50 hover:text-cobalt-600"
 			>
 				{link.name}
 			</a>
 		))}
 	</nav>
+
+	<div class="border-t border-carbon-900/10 p-4">
+		<a href={`${base}contacts#form`} class="btn-primary w-full">
+			Онлайн запис
+		</a>
+	</div>
 </aside>

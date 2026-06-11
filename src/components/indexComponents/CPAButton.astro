@@ -1,7 +1,27 @@
 ---
 const base = import.meta.env.BASE_URL;
+
+interface Props {
+    href?: string;
+    label?: string;
+    variant?: 'primary' | 'outline' | 'ghost';
+    class?: string;
+}
+
+const {
+    href = `${base}contacts#form`,
+    label = 'Онлайн запис',
+    variant = 'primary',
+    class: className = '',
+} = Astro.props;
+
+const variantClass = {
+    primary: 'btn-primary',
+    outline: 'btn-outline',
+    ghost: 'btn-ghost',
+}[variant];
 ---
 
-<a href={`${base}contacts`}>
-    Онлайн запис
+<a href={href} class:list={[variantClass, className]}>
+    {label}
 </a>

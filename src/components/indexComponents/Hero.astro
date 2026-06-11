@@ -1,8 +1,9 @@
 ---
 import CPAButton from './CPAButton.astro';
 import { Picture } from 'astro:assets';
-import mainHeroPage from '../../assets/images/heroMainPage.webp';
+import mainHeroPage from '../../assets/images/MainPageImages/heroMainPage.webp';
 
+const base = import.meta.env.BASE_URL;
 ---
 <section class="hero">
     <Picture
@@ -12,17 +13,29 @@ import mainHeroPage from '../../assets/images/heroMainPage.webp';
         widths={[240, 540, 720, mainHeroPage.width]}
         sizes="100vw"
         formats={['avif', 'webp']}
+        loading="eager"
     />
-    <div class="hero__content">
-        <h1>
+    <div class="hero__content container-x py-24 sm:py-28">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-cobalt-100/90">
+            Детейлінг-студія у Львові
+        </p>
+        <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             Apex Detailing
         </h1>
-        <p>
+        <p class="mt-5 max-w-2xl text-xl font-medium text-white/90 sm:text-2xl">
             Естетика вашого авто, захищена технологіями.
         </p>
-        <p>
-            Професійний дeтейлінг, захист лакофарбового покриття плівками та нанокерамікою у Львові. Працюємо за стандартами європейських студій із сертифікованими матеріалами.
+        <p class="mt-4 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+            Професійний детейлінг, захист лакофарбового покриття плівками та нанокерамікою у Львові.
+            Працюємо за стандартами європейських студій із сертифікованими матеріалами.
         </p>
-        <CPAButton />
+        <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+            <CPAButton />
+            <CPAButton
+                href={`${base}services`}
+                label="Послуги та прайс"
+                variant="outline"
+            />
+        </div>
     </div>
 </section>

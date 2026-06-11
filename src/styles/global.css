@@ -1,18 +1,93 @@
 @import "tailwindcss";
-@custom-variant is-open (&.is-open, .is-open &); 
+@custom-variant is-open (&.is-open, .is-open &);
 
 
 @theme {
+    /* ===== Палітра ===== */
+    /* Кобальтовий синій — акценти та CTA */
+    --color-cobalt-50: #eff4ff;
+    --color-cobalt-100: #dbe6fe;
+    --color-cobalt-500: #2563eb;
+    --color-cobalt-600: #1d4ed8;
+    --color-cobalt-700: #1e40af;
 
+    /* Карбоновий чорний — текст та контрастні блоки */
+    --color-carbon-700: #1f2937;
+    --color-carbon-800: #111827;
+    --color-carbon-900: #0a0e16;
+
+    /* Клінічний білий / світло-сірий — базовий фон */
+    --color-clinic-50: #ffffff;
+    --color-clinic-100: #f7f8fa;
+    --color-clinic-200: #eef1f5;
+    --color-clinic-300: #e2e6ec;
+
+    /* ===== Шрифти ===== */
+    --font-display: "Playfair Display", serif;
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 
 @layer base {
+    body {
+        @apply bg-clinic-100 font-sans text-carbon-800 antialiased;
+    }
 
+    h1, h2, h3 {
+        @apply font-display;
+    }
+
+    /* Компенсація прилиплого хедера при переходах по якорях (#about, #form) */
+    :target {
+        scroll-margin-top: 6rem;
+    }
 }
 
 
 @layer components {
+
+    /* ===== Спільні утиліти ===== */
+
+    /* Контейнер контенту */
+    .container-x {
+        @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+    }
+
+    /* Заголовок секції */
+    .section-title {
+        @apply font-display text-3xl font-bold tracking-tight text-carbon-900 sm:text-4xl;
+    }
+
+    .section-eyebrow {
+        @apply text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-600;
+    }
+
+    /* ===== Кнопки =====
+       База повторюється в кожному варіанті: у Tailwind v4 @apply не бачить
+       кастомні класи-компоненти, лише вбудовані утиліти. */
+    .btn,
+    .btn-primary,
+    .btn-outline,
+    .btn-ghost {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3
+               text-sm font-semibold transition focus:outline-none
+               focus-visible:ring-2 focus-visible:ring-cobalt-500 focus-visible:ring-offset-2;
+    }
+
+    .btn-primary {
+        @apply bg-cobalt-500 text-white shadow-lg shadow-cobalt-500/25
+               hover:bg-cobalt-600 hover:shadow-cobalt-500/40 active:scale-[0.98];
+    }
+
+    .btn-outline {
+        @apply border border-white/40 bg-white/10 text-white backdrop-blur-sm
+               hover:bg-white/20 active:scale-[0.98];
+    }
+
+    .btn-ghost {
+        @apply border border-carbon-900/15 bg-white text-carbon-900
+               hover:border-cobalt-500 hover:text-cobalt-600 active:scale-[0.98];
+    }
 
     /* ===== Hero ===== */
     .hero {
@@ -29,17 +104,48 @@
         z-index: 0;
     }
 
-    /* Затемнение между фоном и текстом для читабельности */
+    /* Затемнення між фоном і текстом для читабельності */
     .hero::after {
         @apply absolute inset-0;
         content: "";
-        background: rgba(0, 0, 0, 0.5);
+        background: linear-gradient(
+            105deg,
+            rgba(10, 14, 22, 0.85) 0%,
+            rgba(10, 14, 22, 0.55) 45%,
+            rgba(10, 14, 22, 0.25) 100%
+        );
         z-index: 1;
     }
 
     .hero__content {
-        @apply relative max-w-3xl p-8 text-white;
+        @apply relative max-w-3xl text-white;
         z-index: 2;
+    }
+
+    /* ===== Поля форми ===== */
+    .field-label {
+        @apply mb-1.5 block text-sm font-medium text-carbon-900;
+    }
+
+    .field {
+        @apply w-full rounded-lg border border-carbon-900/15 bg-clinic-50 px-4 py-2.5
+               text-sm text-carbon-900 placeholder:text-carbon-700/40
+               transition focus:border-cobalt-500 focus:outline-none
+               focus:ring-2 focus:ring-cobalt-500/30
+               aria-invalid:border-red-500 aria-invalid:ring-red-500/20;
+    }
+
+    .field-error {
+        @apply mt-1.5 text-xs font-medium text-red-600;
+    }
+
+    /* ===== Фонове зображення через <picture> =====
+       Astro <Picture> рендерить <picture><img>. Клас летить на <picture>,
+       тому розтягуємо і його, і вкладений <img> (Tailwind у розмітці до <img> не дістає). */
+    .media-bg,
+    .media-bg img {
+        @apply absolute inset-0 h-full w-full;
+        object-fit: cover;
     }
 
 }

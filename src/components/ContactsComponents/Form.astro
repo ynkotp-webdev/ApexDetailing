@@ -1,63 +1,93 @@
 ---
 ---
 
-<section>
-	<div>
-		<h2>Маєте запитання?</h2>
-		<p>
-			Залиште свої контакти — і ми зв'яжемося з вами найближчим часом.
-		</p>
-
-		<form
-			id="ask-form"
-			action="#@"
-			method="POST"
-		>
-			<div>
-				<div>
-					<label for="name">Ваше ім'я</label>
-					<input
-						type="text"
-						id="name"
-						name="name"
-						minlength="2"
-						required
-						placeholder="Мінімум 2 символи"
-					/>
-					<p class="field-error" data-error-for="name" hidden></p>
-				</div>
-
-				<div>
-					<label for="tel">Ваш телефон</label>
-					<input
-						type="tel"
-						id="tel"
-						name="tel"
-						pattern="\+380\d{9}"
-						required
-						placeholder="+380XXXXXXXXX"
-					/>
-					<p class="field-error" data-error-for="tel" hidden></p>
-				</div>
-
-				<div>
-					<label for="message">Ваше запитання</label>
-					<textarea
-						id="message"
-						name="message"
-						rows="4"
-						minlength="10"
-						required
-						placeholder="Розкажіть, що вас цікавить (мінімум 10 символів)"
-					></textarea>
-					<p class="field-error" data-error-for="message" hidden></p>
-				</div>
-
-				<button type="submit">Надіслати</button>
-
-				<p id="form-status" role="status" aria-live="polite" hidden></p>
+<section id="form" class="bg-clinic-200 py-20 sm:py-24">
+	<div class="container-x">
+		<div class="mx-auto max-w-2xl">
+			<div class="text-center">
+				<p class="section-eyebrow">Зворотний зв'язок</p>
+				<h2 class="section-title mt-3">Маєте запитання?</h2>
+				<p class="mt-4 text-base leading-relaxed text-carbon-700/80">
+					Залиште свої контакти — і ми зв'яжемося з вами найближчим часом.
+				</p>
 			</div>
-		</form>
+
+			<form
+				id="ask-form"
+				action="#@"
+				method="POST"
+				class="mt-10 rounded-lg border border-carbon-900/10 bg-clinic-50 p-6 shadow-lg sm:p-8"
+				novalidate
+			>
+				<div class="grid gap-5 sm:grid-cols-2">
+					<div>
+						<label for="name" class="field-label">Ваше ім'я</label>
+						<input
+							type="text"
+							id="name"
+							name="name"
+							minlength="2"
+							required
+							placeholder="Мінімум 2 символи"
+							class="field"
+						/>
+						<p class="field-error" data-error-for="name" hidden></p>
+					</div>
+
+					<div>
+						<label for="tel" class="field-label">Ваш телефон</label>
+						<input
+							type="tel"
+							id="tel"
+							name="tel"
+							pattern="\+380\d{9}"
+							required
+							placeholder="+380XXXXXXXXX"
+							class="field"
+						/>
+						<p class="field-error" data-error-for="tel" hidden></p>
+					</div>
+
+					<div class="sm:col-span-2">
+						<label for="message" class="field-label">Введіть марку автомобіля</label>
+						<textarea
+							id="message"
+							name="message"
+							rows="2"
+							required
+							placeholder="BMW M4 2023 / Audi Q7 2021"
+							class="field resize-y"
+						></textarea>
+						<p class="field-error" data-error-for="message" hidden></p>
+					</div>
+
+					<div class="sm:col-span-2">
+						<label for="option" class="field-label">Що саме вас цікавить?</label>
+						<select id="option" name="option" required class="field">
+							<option value="" disabled selected>Оберіть послугу з списку</option>
+							<option value="Comprehensive bodywork polishing">Комплексне полірування кузова</option>
+							<option value="Application of 9H nanoceramics">Нанесення нанокераміки 9H</option>
+							<option value="Stone chip protection film (Full protection)">Антигравійна плівка (Повний захист)</option>
+							<option value="Stone chip protection film (Partial protection)">Антигравійна плівка (Зона ризику)</option>
+							<option value="Deep interior cleaning">Глибока хімчистка салону</option>
+							<option value="Pre-sale preparation">Передпродажна підготовка</option>
+							<option value="I need advice from a professional">Потрібна консультація майстра</option>
+						</select>
+					</div>
+				</div>
+
+				<button type="submit" class="btn-primary mt-6 w-full">Надіслати</button>
+				<p
+					id="form-status"
+					role="status"
+					aria-live="polite"
+					hidden
+					class="mt-4 rounded-lg px-4 py-3 text-center text-sm font-medium
+					       data-[state=ok]:bg-green-50 data-[state=ok]:text-green-700
+					       data-[state=error]:bg-red-50 data-[state=error]:text-red-700"
+				></p>
+			</form>
+		</div>
 	</div>
 </section>
 

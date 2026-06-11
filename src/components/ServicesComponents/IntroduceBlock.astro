@@ -3,9 +3,37 @@ import { Picture } from 'astro:assets';
 import IntroduceBlockImg from '../../assets/images/ServicesPageImages/introduceBlockImg.webp';
 ---
 
-<section>
-    <h1> Технологічні рішення для вашого авто </h1>
-    <p> Оберіть комплекс, який відповідає поточним потребам вашого автомобіля. Усі ціни є прозорими та залежать від класу і стану авто. </p>
-    <a href="#Cards"> Дізнатися більше </a>
-    <Picture src={IntroduceBlockImg} alt="Головне зображення сторінки" />
+<section class="relative flex min-h-[60vh] items-center overflow-hidden">
+    <Picture
+        class="media-bg"
+        src={IntroduceBlockImg}
+        alt="Технологічний догляд за автомобілем"
+        widths={[240, 540, 720, 1040, IntroduceBlockImg.width]}
+        sizes="100vw"
+        formats={['avif', 'webp']}
+        loading="eager"
+    />
+
+    <!-- Затемнення для читабельності -->
+    <div
+        class="absolute inset-0 bg-linear-to-r from-carbon-900/90 via-carbon-900/65 to-carbon-900/30"
+        aria-hidden="true"
+    >
+    </div>
+
+    <div class="relative z-10 container-x py-20">
+        <div class="max-w-2xl text-white">
+            <p class="section-eyebrow text-cobalt-100">Послуги та прайс</p>
+            <h1 class="mt-3 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                Технологічні рішення для вашого авто
+            </h1>
+            <p class="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+                Оберіть комплекс, який відповідає поточним потребам вашого автомобіля.
+                Усі ціни є прозорими та залежать від класу і стану авто.
+            </p>
+            <a href="#prices" class="btn-primary mt-8">
+                Переглянути прайс
+            </a>
+        </div>
+    </div>
 </section>

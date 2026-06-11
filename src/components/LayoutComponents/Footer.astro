@@ -1,37 +1,86 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../../assets/images/logo.png';
+import { links } from '../../data/nav.ts';
 
 const base = import.meta.env.BASE_URL;
 ---
-<footer>
-	<div class="flex justify-center gap-4">
-		<a href={base}>
-			<Image
-				src={logo}
-				alt="Логотип Apex Detailing"
-				width={88}
-				height={88}
-			/>
-			 
-		</a>
-		<div class="flex center ">
-			<p>
-				Apex Detailing - Більше, ніж просто сервіс!
-			</p>
-			<p>
-				© 2026 Apex Detailing. Всі права захищені.
-			</p>
+<footer class="bg-carbon-900 text-clinic-200">
+	<div class="container-x py-14">
+		<div class="grid gap-10 md:grid-cols-3">
+			<!-- Бренд -->
+			<div>
+				<a href={base} class="flex items-center gap-3" aria-label="Apex Detailing — на головну">
+					<Image
+						src={logo}
+						alt="Логотип Apex Detailing"
+						width={56}
+						height={56}
+						class="h-12 w-12 object-contain"
+					/>
+					<span class="font-display text-lg font-semibold text-white">Apex Detailing</span>
+				</a>
+				<p class="mt-4 max-w-xs text-sm leading-relaxed text-clinic-200/70">
+					Більше, ніж просто сервіс. Професійний детейлінг та захист авто у Львові.
+				</p>
+			</div>
+
+			<!-- Навігація -->
+			<nav class="flex flex-col gap-3 text-sm">
+				<p class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-clinic-200/50">Навігація</p>
+				{links.map(link => (
+					<a href={link.href} class="w-fit text-clinic-200/80 transition hover:text-cobalt-500">
+						{link.name}
+					</a>
+				))}
+			</nav>
+
+			<!-- Контакти + соцмережі -->
+			<div class="text-sm">
+				<p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-clinic-200/50">Контакти</p>
+				<a href="tel:+380671234598" class="block text-clinic-200/80 transition hover:text-cobalt-500">
+					+38 (067) 123-45-98
+				</a>
+				<a href="mailto:info@apexdetailing.lviv.ua" class="mt-1 block text-clinic-200/80 transition hover:text-cobalt-500">
+					info@apexdetailing.lviv.ua
+				</a>
+				<p class="mt-3 text-clinic-200/60">м. Львів, вул. Кульпарківська, 226а</p>
+
+				<div class="mt-5 flex gap-3">
+					<a
+						href="https://www.instagram.com/"
+						aria-label="Instagram"
+						class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 transition hover:bg-cobalt-500"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+							<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+							<line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+						</svg>
+					</a>
+					<a
+						href="https://www.facebook.com/"
+						aria-label="Facebook"
+						class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 transition hover:bg-cobalt-500"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
 		</div>
-		<div>
-			<a href="https://www.instagram.com/"> <!--logo instagram --> </a>
-			<a href="https://www.facebook.com/"> <!--logo facebook --> </a>
+
+		<div class="mt-12 border-t border-white/10 pt-6 text-center text-xs text-clinic-200/50">
+			© 2026 Apex Detailing. Всі права захищені.
 		</div>
 	</div>
+
 	<!-- Прибрати на клієнтських сайтах -->
-	<div class="border-t border-white/10">
-		<p class="mx-auto max-w-7xl px-5 py-5 text-center text-xs opacity-60 sm:px-6">
-			Це навчальний проєкт для портфоліо. Усі дані вигадані, будь-які збіги з реальними особами, місцями чи подіями є випадковими та не мають на меті відображення реальності.
+	<div class="border-t border-white/10 bg-carbon-900">
+		<p class="container-x py-5 text-center text-xs leading-relaxed text-clinic-200/40">
+			Це навчальний проєкт для портфоліо. Усі дані вигадані, будь-які збіги з реальними особами,
+			місцями чи подіями є випадковими та не мають на меті відображення реальності.
 		</p>
 	</div>
 </footer>
