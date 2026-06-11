@@ -3,8 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import InformationBlock from "../components/ContactsComponents/InformationBlock.astro";
 import Form from "../components/ContactsComponents/Form.astro";
 import Contact from "../components/ContactsComponents/Contact.astro";
+import ogImage from "../assets/images/ContactsPageImages/informationBlockImg.webp";
 ---
-<Layout>
+<Layout title="Контакти Apex Detailing — Запис на дітейлінг у Львові" description="Зв'яжіться з майстрами Apex Detailing для консультації. Ми знаходимося: м. Львів, вул. Кульпарківська, 226а. Телефонуйте або залиште заявку онлайн для розрахунку вартості послуг." image={ogImage.src}>
     <InformationBlock />
     <Contact />
     <Form />

@@ -3,8 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import IntroduceBlock from "../components/ServicesComponents/IntroduceBlock.astro";
 import Cards from "../components/ServicesComponents/Cards.astro";
 import FAQ from "../components/ServicesComponents/FAQ.astro";
+import ogImage from "../assets/images/ServicesPageImages/introduceBlockImg.webp";
 ---
-<Layout>
+<Layout title="Послуги та ціни — Apex Detailing Львів" description="Прозорий прайс на професійний догляд за авто. Відновлювальне полірування, керамічне покриття, обклеювання плівкою та хімчистка. Ознайомтеся з нашими цінами та технологічним процесом." image={ogImage.src}>
     <IntroduceBlock />
     <Cards />
     <FAQ />

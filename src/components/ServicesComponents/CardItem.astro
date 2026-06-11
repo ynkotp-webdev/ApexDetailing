@@ -27,6 +27,7 @@ const { title, id, price, img, duration, shortDesc, fullFeatures, reverse = fals
         <!-- Фото послуги (чергується зліва / справа) -->
         <div class:list={["shrink-0", reverse && "sm:order-2"]}>
             <Image
+                loading="lazy"
                 src={img}
                 alt={title}
                 class="h-48 w-full rounded-lg object-cover sm:h-40 sm:w-40"

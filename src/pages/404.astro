@@ -2,22 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets'
 import logo from '../assets/images/logo.png';
-const base = import.meta.env.BASE_URL;  
+const base = import.meta.env.BASE_URL;
 ---
-<Layout title=" 404 - Сторінку не знайдено">
-    <main>
-        <Image 
-            src={logo}
-            alt=""
-            width={100}
-            height={100}
-            loading="eager"
-        />
-        <p class=" "> Помилка 404</p>
-        <h1 class=" "> Сторінку не знайдено </h1>
-        <p class=" "> Вибачте, але сторінка, яку ви шукаєте, не існує. </p>
-        <a href={`${base}`} class="text-blue-500 hover:text-blue-700">
-            Повернутися на головну
-        </a>
-    </main>
+<Layout title=" 404 - Сторінку не знайдено" description='Схоже, сторінку яку ви шукали не знайдено'>
+    <section class="flex min-h-[70vh] items-center justify-center bg-clinic-100 px-5 py-20">
+        <div class="flex flex-col items-center text-center">
+            <Image
+                src={logo}
+                alt="Логотип Apex Detailing"
+                width={200}
+                height={200}
+                loading="eager"
+                class="h-36 w-36 object-contain"
+            />
+            <p class="mt-8 font-display text-7xl font-bold tracking-tight text-cobalt-500 sm:text-8xl">
+                404
+            </p>
+            <h1 class="mt-4 font-display text-3xl font-bold tracking-tight text-carbon-900 sm:text-4xl">
+                Сторінку не знайдено
+            </h1>
+            <p class="mt-4 max-w-md text-base leading-relaxed text-carbon-700/80 sm:text-lg">
+                Вибачте, але сторінка, яку ви шукаєте, не існує.
+            </p>
+            <a href={base} class="btn-primary mt-8">
+                Повернутися на головну
+            </a>
+        </div>
+    </section>
 </Layout>
